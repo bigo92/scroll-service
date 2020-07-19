@@ -1,0 +1,78 @@
+<section class="awe-section-2">
+  <section class="section-collection margin-bottom-20">
+    <div class="container">
+      <div class="row" *ngIf="categoryData.length > 0">
+        <div class=" col-md-12 col-sm-12 col-xs-12 pd">
+          <div class="col-md-3 col-sm-3 col-xs-12 pd">
+            <div class="small-banner-img third-banner">
+              <div class="item">
+                <div class="block__collection-item">
+                  <a class="img-category" [routerLink]="['/san-pham',categoryData[0].keyName]">
+                    <img src="{{categoryData[0].img}}" alt="{{categoryData[0].name}}" class='img-responsive' />
+                  </a>
+                  <div class="info-product">
+                    <a [routerLink]="['/san-pham',categoryData[0].keyName]" class="item-count btn btn-group">{{categoryData[0].name}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12 pd">
+            <div class="small-banner-img first-banner col-md-6 col-sm-6 col-xs-12 col-sp-12  pd">
+              <div class="item">
+                <div class="block__collection-item ">
+                  <a class="img-category" [routerLink]="['/san-pham',categoryData[1].keyName]">
+                    <img src="{{categoryData[1].img}}" alt="{{categoryData[1].name}}" class='img-responsive img-top' />
+                  </a>
+                  <div class="info-product">
+                    <a [routerLink]="['/san-pham',categoryData[1].keyName]" class="btn-group">{{categoryData[1].name}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="small-banner-img first-banner col-md-6 col-sm-6 col-xs-12 col-sp-12  pd">
+
+              <div class="item">
+                <div class="block__collection-item ">
+                  <a class="img-category" [routerLink]="['/san-pham',categoryData[2].keyName]">
+                    <img src="{{categoryData[2].img}}" alt="{{categoryData[2].name}}" class='img-responsive img-top' />
+                  </a>
+                  <div class="info-product">
+                    <a [routerLink]="['/san-pham',categoryData[2].keyName]" class="item-count btn btn-group">{{categoryData[2].name}}</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="small-banner-img second-banner col-md-12 col-sm-12 col-xs-12 pd">
+              <div class="item">
+                <div class="block__collection-item ">
+                  <a class="img-category" [routerLink]="['/san-pham',categoryData[3].keyName]">
+                    <img src="{{categoryData[3].img}}" alt="{{categoryData[3].name}}" class='img-responsive' />
+                  </a>
+                  <div class="info-product">
+                    <a [routerLink]="['/san-pham',categoryData[3].keyName]" class="item-count btn btn-group">{{categoryData[3].name}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12 pd">
+            <div class="small-banner-img third-banner">
+              <div class="item">
+                <div class="block__collection-item">
+                  <a class="img-category" [routerLink]="['/san-pham',categoryData[4].keyName]">
+                    <img src="{{categoryData[4].img}}" alt="{{categoryData[4].name}}" class='img-responsive' />
+                  </a>
+                  <div class="info-product">
+                    <a [routerLink]="['/san-pham',categoryData[4].keyName]" class="item-count btn btn-group">{{categoryData[4].name}}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

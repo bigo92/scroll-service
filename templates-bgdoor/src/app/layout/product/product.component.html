@@ -1,0 +1,406 @@
+<section class="bread-crumb clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+          <li class="home">
+            <a itemprop="url" itemprop="url" href="/">
+              <span itemprop="title" class="brc-home">Trang chủ </span>
+            </a>
+            <span>
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </li>
+          <li>
+            <span itemprop="title"> Tất Cả Sản Phẩm</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <section class="main_container collection col-xs-12  col-md-9 col-sm-8">
+      <h1 class="hidden title-head margin-top-0">Tất Cả Sản Phẩm</h1>
+      <div class="category-products products">
+        <div class="sortPagiBar">
+          <div class="row">
+            <div class="col-xs-4 col-sm-4">
+              <div class="view-mode">
+                <a href="javascript:;" (click)="layout = 1">
+                  <label class="btn button-view-mode view-mode-grid" [ngClass]="{'active':layout === 1}">
+                    <i class="fa fa-th" aria-hidden="true"></i>
+                  </label>
+                  <span>Lưới</span>
+                </a>
+                <a href="javascript:;" (click)="layout = 2">
+                  <label class="btn button-view-mode view-mode-list" [ngClass]="{'active':layout === 2}">
+                    <i class="fa fa-th-list" aria-hidden="true"></i>
+                  </label>
+                  <span>Danh sách</span>
+                </a>
+              </div>
+            </div>
+            <div class="col-xs-8 col-sm-8 text-xs-left text-sm-right">
+              <div class="form-inline form-viewpro">
+                <div class="form-group">
+                  <span>Sắp xếp: </span>
+                  <select class="form-control sort-by-script" [(ngModel)]="order" (change)="getData()">
+                    <option value="Id desc">Mới đến cũ</option>
+                    <option value="Id asc">Cũ đến mới</option>
+                    <!-- <option value="'data.price' asc">Giá tăng dần</option>
+                    <option value="'data.price' desc">Giá giảm dần</option> -->
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="products-view products-view-grid" *ngIf="layout === 1">
+          <div class="row row-gutter-14">
+            <div class="col-xs-6 col-sm-6 col-lg-4" *ngFor="let item of data">
+              <div class="product-box col-md-12 col-xs-12 col-sp-12">
+                <div class="product-thumbnail">
+                  <div class="sale-flash" *ngIf="item.data.priceOld !== null">SALE</div>
+                  <a [routerLink]="['/san-pham',item.data.keyName,item.id]" title="{{item.data.name}}" class="text-center">
+                    <img class="img-product" src="{{item.files[0].url}}" alt="{{item.data.name}}">
+                  </a>
+                  <div class="view-product">
+                    <a href="javascript:;" class="btn btn-group right-to quick-view" (click)="quickView(item)">
+                      <span>Xem nhanh</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="product-info a-left">
+                  <h3 class="product-name">
+                    <a [routerLink]="['/san-pham',item.data.keyName,item.id]" title="{{item.data.name}}">{{item.data.name}}</a>
+                  </h3>
+
+
+                  <div class="price-box clearfix">
+                    <div class="special-price">
+                      <span class="price product-price" *ngIf="item.data.price > 0">{{item.data.price | number}}₫</span>
+                      <span class="price product-price" *ngIf="item.data.price === 0">Liên hệ</span>
+                      <span class="price product-price-old" *ngIf="item.data.priceOld !== null">
+                        {{item.data.priceOld | number}}₫
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="product-action clearfix">
+                  <div class="variants form-nut-grid">
+                    <div>
+                      <input class="hidden" type="hidden" name="variantId" value="9421059" />
+                      <button class="btn-cart btn btn-gray left-to" title="Chọn sản phẩm" type="button" [routerLink]="['/san-pham',item.data.keyName,item.id]">
+                        Tùy chọn</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-xs-right">
+            <app-paging [data]="paging" (change)="getData($event)"></app-paging>
+          </div>
+        </section>
+        <section class="products-view products-view-list" *ngIf="layout === 2">
+          <div class="row row-noGutter">
+            <div class="col-xs-12" *ngFor="let item of data">
+              <div class="product-box">
+                <div class="product-thumbnail f-left">
+                  <div class="sale-flash" *ngIf="item.data.priceOld !== null">SALE</div>
+                  <a [routerLink]="['/san-pham',item.data.keyName, item.id]" title="{{item.data.name}}">
+                    <img src="{{item.files[0].url}}" alt="{{item.data.name}}" class="bethua" style="padding-top: 0px;">
+                  </a>
+                </div>
+                <div class="product-info f-left">
+                  <h3 class="product-name">
+                    <a [routerLink]="['/san-pham',item.data.keyName, item.id]" title="{{item.data.name}}">{{item.data.name}}</a>
+                  </h3>
+
+                  <div class="price-box clearfix">
+                    <div class="special-price f-left">
+                      <span class="price product-price" *ngIf="item.data.price > 0">{{item.data.price | number}}₫</span>
+                      <span class="price product-price" *ngIf="item.data.price === 0">Liên hệ</span>
+                    </div>
+
+                    <div class="old-price" *ngIf="item.data.priceOld !== null">
+                      <span class="price product-price-old">
+                        {{item.data.priceOld | number}}₫
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="product-summary">
+                    {{item.data.sum}}
+                  </div>
+                  <div class="variants pro-action-btn margin-top-15">
+                    <button class="btn-cart btn btn-gray left-to" title="Chọn sản phẩm" type="button" [routerLink]="['/san-pham',item.data.keyName, item.id]">
+                      Tùy chọn</button>
+                    <a href="javascript:;" class="btn-white btn_view btn right-to quick-view" (click)="quickView(item)">Xem nhanh</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-xs-right">
+            <app-paging [data]="paging" (change)="getData($event)"></app-paging>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <aside class="sidebar col-xs-12 col-md-3 col-sm-4 ">
+      <app-product-category></app-product-category>
+
+      <div class="aside-filter">
+        <aside class="aside-item filter-price">
+          <div class="aside-title">
+            <h2 class="title-head margin-top-0">
+              <span>Giá sản phẩm</span>
+            </h2>
+          </div>
+          <div class="aside-content filter-group">
+            <ul>
+              <li class="filter-item filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-duoi-100-000d">
+                    <input type="checkbox" id="filter-duoi-100-000d" value="1" (click)="filterPrice($event)">
+                    <i class="fa"></i>
+                    Giá dưới 100.000đ
+                  </label>
+                </span>
+              </li>
+
+              <li class="filter-item filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-100-000d-200-000d">
+                    <input type="checkbox" id="filter-100-000d-200-000d" value="2" (click)="filterPrice($event)">
+                    <i class="fa"></i>
+                    100.000đ - 200.000đ
+                  </label>
+                </span>
+              </li>
+
+              <li class="filter-item filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-200-000d-300-000d">
+                    <input type="checkbox" id="filter-200-000d-300-000d" value="3" (click)="filterPrice($event)">
+                    <i class="fa"></i>
+                    200.000đ - 300.000đ
+                  </label>
+                </span>
+              </li>
+              <li class="filter-item filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-300-000d-500-000d">
+                    <input type="checkbox" id="filter-300-000d-500-000d" value="4" (click)="filterPrice($event)">
+                    <i class="fa"></i>
+                    300.000đ - 500.000đ
+                  </label>
+                </span>
+              </li>
+
+              <li class="filter-item filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-500-000d-1-000-000d">
+                    <input type="checkbox" id="filter-500-000d-1-000-000d" value="5" (click)="filterPrice($event)">
+                    <i class="fa"></i>
+                    500.000đ - 1.000.000đ
+                  </label>
+                </span>
+              </li>
+              <li class="filter-item filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-tren1-000-000d">
+                    <input type="checkbox" id="filter-tren1-000-000d" value="6" (click)="filterPrice($event)">
+                    <i class="fa"></i>
+                    Giá trên 1.000.000đ
+                  </label>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- <aside class="aside-item filter-tag-style-1">
+          <div class="aside-title">
+            <h2 class="title-head margin-top-0">
+              <span>Màu sắc</span>
+            </h2>
+          </div>
+          <div class="aside-content filter-group clearfix">
+            <ul style="overflow: visible;">
+              <li class="filter-item color filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-vang">
+                    <input type="checkbox" id="filter-vang" onchange="toggleFilter(this)" data-group="tag1" data-field="tags" data-text="Vàng"
+                      value="(Vàng)" data-operator="OR">
+                    <i class="fa vang" style="background-color:#F4FA58;"></i>
+                    Vàng
+                  </label>
+                </span>
+              </li>
+              <li class="filter-item color filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-do">
+                    <input type="checkbox" id="filter-do" onchange="toggleFilter(this)" data-group="tag1" data-field="tags" data-text="Đỏ" value="(Đỏ)"
+                      data-operator="OR">
+                    <i class="fa do" style="background-color:#FF0000;"></i>
+                    Đỏ
+                  </label>
+                </span>
+              </li>
+              <li class="filter-item color filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-trang">
+                    <input type="checkbox" id="filter-trang" onchange="toggleFilter(this)" data-group="tag1" data-field="tags" data-text="Trắng"
+                      value="(Trắng)" data-operator="OR">
+                    <i class="fa trang" style="background-color:#FFFFFF;border:1px solid #ebebeb;"></i>
+                    Trắng
+                  </label>
+                </span>
+              </li>
+              <li class="filter-item color filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-nau">
+                    <input type="checkbox" id="filter-nau" onchange="toggleFilter(this)" data-group="tag1" data-field="tags" data-text="Nâu"
+                      value="(Nâu)" data-operator="OR">
+                    <i class="fa nau" style="background-color:#DF3A01;"></i>
+                    Nâu
+                  </label>
+                </span>
+              </li>
+              <li class="filter-item color filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-da-cam">
+                    <input type="checkbox" id="filter-da-cam" onchange="toggleFilter(this)" data-group="tag1" data-field="tags" data-text="Da cam"
+                      value="(Da cam)" data-operator="OR">
+                    <i class="fa da-cam" style="background-color:#FF4000;"></i>
+                    Da cam
+                  </label>
+                </span>
+              </li>
+              <li class="filter-item color filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-hong">
+                    <input type="checkbox" id="filter-hong" onchange="toggleFilter(this)" data-group="tag1" data-field="tags" data-text="Hồng"
+                      value="(Hồng)" data-operator="OR">
+                    <i class="fa hong" style="background-color:#FA58AC;"></i>
+                    Hồng
+                  </label>
+                </span>
+              </li>
+              <li class="filter-item color filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-den">
+                    <input type="checkbox" id="filter-den" onchange="toggleFilter(this)" data-group="tag1" data-field="tags" data-text="Đen"
+                      value="(Đen)" data-operator="OR">
+                    <i class="fa den" style="background-color:#000000;"></i>
+                    Đen
+                  </label>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </aside> -->
+
+        <!-- <aside class="aside-item filter-tag-style-1">
+          <div class="aside-title">
+            <h2 class="title-head margin-top-0">
+              <span>Kích thước</span>
+            </h2>
+          </div>
+          <div class="aside-content filter-group">
+            <ul>
+              <li class="filter-item filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-lon">
+                    <input type="checkbox" id="filter-lon" onchange="toggleFilter(this)" data-group="tag2" data-field="tags" data-text="Lớn"
+                      value="(Lớn)" data-operator="OR">
+                    <i class="fa"></i>
+                    Lớn
+                  </label>
+                </span>
+              </li>
+              <li class="filter-item filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-nho">
+                    <input type="checkbox" id="filter-nho" onchange="toggleFilter(this)" data-group="tag2" data-field="tags" data-text="Nhỏ"
+                      value="(Nhỏ)" data-operator="OR">
+                    <i class="fa"></i>
+                    Nhỏ
+                  </label>
+                </span>
+              </li>
+              <li class="filter-item filter-item--check-box filter-item--green">
+                <span>
+                  <label for="filter-vua">
+                    <input type="checkbox" id="filter-vua" onchange="toggleFilter(this)" data-group="tag2" data-field="tags" data-text="Vừa"
+                      value="(Vừa)" data-operator="OR">
+                    <i class="fa"></i>
+                    Vừa
+                  </label>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </aside> -->
+      </div>
+
+      <div id="products_sider_block" class="block products_block nopadding">
+        <h2 class="title_block">
+          <span>Sản Phẩm Mới</span>
+        </h2>
+        
+        <div class="block_content products-block">
+          <ul class="products products-block">
+            <li class="media clearfix col-xs-12 col-md-12 col-sm-12 pd" *ngFor="let item of dataNew">
+              <div class="product-block">
+                <div class="product-container media">
+                  <a class="products-block-image img pull-left" [routerLink]="['/san-pham', item.data.keyName, item.id]" title="{{item.data.name}}">
+                    <img class="replace-2x img-responsive" src="{{item.files[0].url}}" alt="">
+                  </a>
+                  <div class="media-body">
+                    <div class="product-content">
+                      <h5 class="name media-heading">
+                        <a class="product-name" [routerLink]="['/san-pham', item.data.keyName, item.id]" title="{{item.data.name}}">{{item.data.name}}</a>
+                      </h5>
+                      <div class="content_price">
+                        <span class="price product-price sale-price">
+                          <span *ngIf="item.data.price > 0">{{item.data.price | number}}₫</span>
+                          <span *ngIf="item.data.price === 0">Liên hệ</span>
+                        </span>
+                        <span class="old-price product-price" *ngIf="item.data.priceOld !== null">
+                          <span>{{item.data.priceOld | number}}₫</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+      <aside class="aside-item banner sidebar-banner">
+        <div class="aside-title">
+          <h3 class="title-head margin-top-0">
+            <span>Khuyến mãi</span>
+          </h3>
+        </div>
+        <div class="aside-content">
+          <a [routerLink]="['/san-pham',item.data.keyName,item.id]" *ngFor="let item of dataSale">
+            <img src="{{item.files[0].url}}" alt='{{item.data.name}}' class='banner-img' />
+          </a>
+        </div>
+      </aside>
+    </aside>
+  </div>
+</div>
+<app-product-view [data]="quickViewData"></app-product-view>

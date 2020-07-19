@@ -1,0 +1,238 @@
+<section class="bread-crumb clearfix"  [ngStyle]="{'background':'url('+ url +')'}">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="breadcrumb" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+          <li class="home">
+            <a itemprop="url" href="/">
+              <span itemprop="title" class="brc-home">Trang chủ </span>
+            </a>
+            <span>
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </li>
+          <li>
+            <span itemprop="title"> Giỏ hàng</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="main-cart-page main-container col1-layout">
+  <div class="main container pd">
+    <div class="col-main cart_desktop_page cart-page" *ngIf="isDevice === 'desktop'">
+      <div class="cart page_cart hidden-xs" *ngIf="giohang.length > 0">
+        <div class="margin-bottom-0">
+          <div class="bg-scroll">
+            <div class="cart-thead">
+              <div style="width: 17%">Ảnh sản phẩm</div>
+              <div style="width: 33%">
+                <span class="nobr">Tên sản phẩm</span>
+              </div>
+              <div style="width: 15%" class="a-center">
+                <span class="nobr">Đơn giá</span>
+              </div>
+              <div style="width: 14%" class="a-center">Số lượng</div>
+              <div style="width: 15%" class="a-center">Thành tiền</div>
+              <div style="width: 6%">Xoá</div>
+            </div>
+            <div class="cart-tbody">
+              <div class="item-cart" *ngFor="let item of giohang">
+                <div style="width: 17%" class="image">
+                  <a class="product-image" title="{{item.name}}" href="/san-pham/{{item.keyName}}/{{item.id}}">
+                    <img width="75" height="auto" alt="{{item.name}}" src="{{item.url}}">
+                  </a>
+                </div>
+                <div style="width: 33%" class="a-center">
+                  <h2 class="product-name">
+                    <a href="/san-pham/{{item.keyName}}/{{item.id}}">{{item.name}}</a>
+                  </h2>
+                  <span class="variant-title"></span>
+                </div>
+                <div style="width: 15%" class="a-center">
+                  <span class="item-price">
+                    <span class="price">{{item.price | number}}₫</span>
+                  </span>
+                </div>
+                <div style="width: 14%" class="a-center">
+                  <div class="input_qty_pr">
+                    <button class="reduced_pop items-count btn-minus minus-cart" type="button" [attr.data-id]="item.id">–</button>
+                    <input type="text" maxlength="999" min="1" class="input-text number-sidebar input_pop input_pop quantity-cart" size="4" [attr.data-id]="item.id"
+                      [value]="item.quantity">
+                    <button class="increase_pop items-count btn-plus plus-cart" type="button" [attr.data-id]="item.id">+</button>
+                  </div>
+                </div>
+                <div style="width: 15%" class="a-center">
+                  <span class="cart-price">
+                    <span class="price">{{item.price * item.quantity | number}}₫</span>
+                  </span>
+                </div>
+                <div style="width: 6%">
+                  <a class="button remove-item remove-item-cart remove-cart" title="Xóa" href="javascript:;" [attr.data-id]="item.id">
+                    <span>
+                      <span>Xóa</span>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cart-collaterals cart_submit row">
+          <div class="totals col-sm-12 col-md-12 col-xs-12">
+            <div class="totals">
+              <div class="inner">
+                <table class="table shopping-cart-table-total margin-bottom-0" id="shopping-cart-totals-table">
+                  <colgroup>
+                    <col>
+                    <col>
+                  </colgroup>
+                  <tfoot>
+                    <tr>
+                      <td colspan="20" class="a-right">
+                        <span>Tổng tiền</span>
+                      </td>
+                      <td class="a-right">
+                        <strong>
+                          <span class="totals_price price">{{gh.total | number}}₫</span>
+                        </strong>
+                      </td>
+                    </tr>
+                  </tfoot>
+                </table>
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+                  <div class="row form-dat-hang">
+                    <div class="col-sm-6 col-xs-12">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Họ và tên" formControlName="name">
+                        <render-error [data]="myForm.get('name')"></render-error>
+                      </div>
+                    </div>                   
+                    <div class="col-sm-6 col-xs-12">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Số điện thoại" formControlName="phone">
+                        <render-error [data]="myForm.get('phone')"></render-error>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email" formControlName="email">
+                        <render-error [data]="myForm.get('email')"></render-error>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-12">
+                      <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Địa chỉ" formControlName="address">
+                        <render-error [data]="myForm.get('address')"></render-error>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <ul class="checkout">
+                  <li class="clearfix">
+                    <button class="btn btn-white f-left" title="Tiếp tục mua hàng" type="button" [routerLink]="['/san-pham']">
+                      <span>Tiếp tục mua hàng</span>
+                    </button>
+                    <button class="btn  btn-white f-left" title="Xóa toàn bộ đơn hàng" type="button" (click)="removeCartAll()">
+                      <span>Xóa toàn bộ đơn hàng</span>
+                    </button>
+                    <button class="btn btn-primary button btn-proceed-checkout f-right" title="Tiến hành đặt hàng" type="button" (click)="onSubmit()"  [disabled]="isSubmit">
+                      <span>Tiến hành đặt hàng</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>             
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="giohang.length === 0">
+          Không có sản phẩm nào trong giỏ hàng. Quay lại cửa hàng để tiếp tục mua sắm.
+      </div>
+    </div>
+    <div class="cart-mobile" *ngIf="isDevice === 'mobile'">
+      <div class="margin-bottom-0" *ngIf="giohang.length > 0">
+        <div class="header-cart" style="background:#fff;">
+          <div class="title-cart">
+            <h3>Giỏ hàng của bạn</h3>
+          </div>
+        </div>
+        <div class="header-cart-content" style="background:#fff;">
+          <div class="cart_page_mobile content-product-list">
+            <div class="item-product item" *ngFor="let item of giohang">
+              <div class="item-product-cart-mobile">
+                <a class="product-images1" href="/san-pham/{{item.keyName}}/{{item.id}}" title="{{item.name}}">
+                  <img width="80" height="150" alt="" src="{{item.url}}">
+                </a>
+              </div>
+              <div class="title-product-cart-mobile">
+                <h3>
+                  <a href="/san-pham/{{item.keyName}}/{{item.id}}" title="{{item.name}}">{{item.name}}</a>
+                </h3>
+                <p class="price">Giá:
+                  <span>{{item.price * item.quantity | number}}₫</span>
+                </p>
+              </div>
+              <div class="select-item-qty-mobile">
+                <div class="txt_center">               
+                  <button class="reduced items-count btn-minus minus-cart" type="button" [attr.data-id]="item.id">–</button>
+                  <input type="text" maxlength="999" min="1" class="input-text number-sidebar quantity-cart" name="Lines"
+                    size="4" [value]="item.quantity" [attr.data-id]="item.id">
+                  <button class="increase items-count btn-plus plus-cart" type="button" [attr.data-id]="item.id">+</button>
+                </div>
+                <a class="button remove-item remove-item-cart remove-cart" href="javascript:;" [attr.data-id]="item.id">Xoá</a>
+              </div>
+            </div>
+          </div>
+          <div class="header-cart-price">
+            <div class="title-cart ">
+              <h3 class="text-xs-left">Tổng tiền</h3>
+              <a class="text-xs-right totals_price_mobile">{{gh.total | number}}₫</a>
+            </div>
+            <button class="btn btn-white f-left" title="Tiếp tục mua hàng" type="button" onclick="window.location.href='/collections/all'">
+              <span>Tiếp tục mua hàng</span>
+            </button>
+                    
+            <div class="checkout">
+                <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+                    <div class="row form-dat-hang">
+                      <div class="col-sm-6 col-xs-12">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Họ và tên" formControlName="name">
+                          <render-error [data]="myForm.get('name')"></render-error>
+                        </div>
+                      </div>                   
+                      <div class="col-sm-6 col-xs-12">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Số điện thoại" formControlName="phone">
+                          <render-error [data]="myForm.get('phone')"></render-error>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-xs-12">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Email" formControlName="email">
+                          <render-error [data]="myForm.get('email')"></render-error>
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-xs-12">
+                        <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Địa chỉ" formControlName="address">
+                          <render-error [data]="myForm.get('address')"></render-error>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+              <button class="btn-proceed-checkout-mobile" title="Tiến hành thanh toán" type="button" [disabled]="isSubmit" (click)="onSubmit()">
+                <span>Tiến hành thanh toán</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="giohang.length === 0">
+          Không có sản phẩm nào trong giỏ hàng. Quay lại cửa hàng để tiếp tục mua sắm.
+      </div>
+    </div>
+  </div>
+</section>

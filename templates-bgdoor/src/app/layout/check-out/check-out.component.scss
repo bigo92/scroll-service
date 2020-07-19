@@ -1,0 +1,45 @@
+.form-dat-hang {
+  .form-group {
+    min-height: 65px;
+    .form-control {
+      border-radius: 1px;
+    }
+  }
+  render-error {
+    color: #eb0a0a;
+  }
+  input.ng-invalid.ng-touched:not([type=file]),
+  textarea.ng-invalid.ng-touched {
+    border: solid 1px #eb0a0a;
+  }
+}
+
+.cart_desktop_page {
+  .form-dat-hang {
+    padding: 20px;
+    border: solid 1px #ebebeb;
+    margin: 0;
+  }
+}
+
+.cart-mobile {
+  .item-product {
+    position: relative;
+    .price {
+      position: absolute;
+      bottom: 15px;
+    }
+  }
+  .checkout {
+    display: inline-block;
+    form {
+      margin: 0px;
+      .form-dat-hang {
+        border: solid 1px #333333;
+        border-bottom: none;
+        margin: 0;
+        padding-top: 15px;
+      }
+    }
+  }
+}

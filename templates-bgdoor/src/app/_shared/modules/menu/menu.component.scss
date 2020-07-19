@@ -1,0 +1,20 @@
+@import "variables";
+.menuNotInHome {
+  position: relative !important;
+}
+
+.logo-wrapper {
+  img {
+    height: 65px;
+  }
+  @include tablet-and-mobile {
+    height: 50px;
+  }
+}
+
+.logo{
+  width: 28% !important;
+  @include tablet-and-mobile{
+    width: 45% !important;
+  }
+}

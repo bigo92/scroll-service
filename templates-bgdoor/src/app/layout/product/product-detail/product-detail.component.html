@@ -1,0 +1,220 @@
+<section class="bread-crumb clearfix">
+  <div class="container">
+    <div class="row" *ngIf="data">
+      <div class="col-xs-12">
+        <ul class="breadcrumb">
+          <li class="home">
+            <a [routerLink]="['/']" itemprop="url">
+              <span class="brc-home" itemprop="title">Trang chủ </span>
+            </a>
+            <span>
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </li>
+          <li>
+            <a [routerLink]="['/san-pham']" itemprop="url">
+              <span itemprop="title"> Tất Cả Sản Phẩm </span>
+            </a>
+            <span>
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </li>
+          <li>
+            <span itemprop="title"> {{data.data.name}}</span>
+          </li>
+          <li>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="product">
+  <div class="container">
+    <div class="row" *ngIf="data">
+      <div class="col-xs-12 details-product pd">
+        <div class="row no-margin">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="large-image text-center">
+              <a href="javascript:;" data-rel="prettyPhoto[product-gallery]">
+                <img id="zoom_01" src="http://bgdoor.vn/api/file/dowload?url={{curentImg}}&w=768" alt="{{data.data.name}}">
+              </a>
+            </div>
+            <div id="lst-image-for-detail" class="owl-carousel owl-theme thumbnail-product">
+              <div class="item" *ngFor="let img of lstImg">
+                <a href="javascript:void(0);" [attr.data-image]="img.url" [attr.data-zoom-image]="img.url">
+                  <img src="{{img.url}}" alt="">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 details-pro">
+            <h1 class="title-head" itemprop="name">{{data.data.name}}</h1>
+            <div class="inventory_quantity">
+              <span>Có {{data.data.view}} lượt theo dõi</span>
+            </div>
+            <div class="price-box">
+              <span class="special-price">
+                <span class="price product-price" *ngIf="data.data.price > 0">{{data.data.price | number}}₫</span>
+                <span class="price product-price" *ngIf="data.data.price === 0">Liên hệ</span>
+              </span>
+              <!-- Giá Khuyến mại -->
+              <span class="old-price">
+                <del class="price product-price-old" *ngIf="data.data.priceOld > 0">{{data.data.priceOld | number}}₫</del>
+              </span>
+              <!-- Giá gốc -->
+            </div>
+
+            <div class="product-summary product_description margin-bottom-15">
+              <div class="rte description">
+                {{data.data.sumary}}
+              </div>
+            </div>
+
+            <div class="form-product">
+              <div class="form-inline">
+                <div class=" swatch clearfix" data-option-index="0">
+                  <div class="header">Kích thước</div>
+                  <div class="swatch-element M available" *ngFor="let item of data.data.size;let i = index">
+                    <input id="swatch-size-{{i}}" type="radio" name="option-0" value="{{item}}" [checked]="i===0">
+                    <label for="swatch-size-{{i}}">
+                      {{item}}
+                    </label>
+                  </div>
+                </div>
+                <div class="swatch-color swatch clearfix" data-option-index="1">
+                  <div class="header">Màu sắc</div>
+                  <div class="swatch-element color black available" *ngFor="let item of data.data.color;let i = index">
+                    <div class="tooltip">Màu {{item}}</div>
+                    <input id="swatch-color-{{i}}" type="radio" name="option-1" value="{{item}}" [checked]="i === 0">
+                    <label for="swatch-color-{{i}}" class="color-{{clearText(item)}}"></label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="custom custom-btn-number form-control">
+                    <label>Số lượng</label>
+                    <input id="quantity-detail" type="text" [textMask]="{mask: mask}" class="input-text qty quantity-cart" title="Số Lượng" value="1">
+                    <button type="button" class="btn_minis fa fa-angle-down" (click)="updateCart(-1)"></button>
+                    <button type="button" class="btn_plus fa fa-angle-up" (click)="updateCart(1)"></button>
+                  </div>
+                  <button type="button" class="btn btn-lg btn-gray btn-cart add_to_cart btn_buy add_to_cart add-cart" title="Cho vào giỏ hàng"
+                    [attr.jsonData]="gh.JSONData(data)">Thêm vào giỏ hàng</button>
+                </div>
+              </div>              
+              <div class="social-sharing">
+                <div class="social-media" [attr.data-permalink]="location.href">
+                  <label>Chia sẻ: </label>
+
+                  <a target="_blank" href="//www.facebook.com/sharer.php?u={{location.href}}"
+                    class="share-facebook" title="Chia sẻ lên Facebook">
+                    <i class="fa fa-facebook-official"></i>
+                  </a>
+
+                  <a target="_blank" href="//twitter.com/share?text={{data.data.name}}&amp;url={{location.href}}"
+                    class="share-twitter" title="Chia sẻ lên Twitter">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+
+                  <a target="_blank" href="//pinterest.com/pin/create/button/?url={{location.href}}&amp;media={{data.files[0].url}}?v=1489398081823&amp;description={{data.data.name}}"
+                    class="share-pinterest" title="Chia sẻ lên pinterest">
+                    <i class="fa fa-pinterest"></i>
+                  </a>
+
+                  <a target="_blank" href="//plus.google.com/share?url={{location.href}}"
+                    class="share-google" title="+1">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row no-margin">
+          <div class="col-xs-12 col-lg-12 margin-top-15 margin-bottom-15">
+            <!-- Nav tabs -->
+            <div class="product-tab e-tabs">
+              <ul class="tabs tabs-title clearfix">
+                <ul class="tabs tabs-title clearfix">
+
+                  <li class="tab-link" [ngClass]="{'current':tab === 1}" (click)="tab = 1">
+                    <h3>
+                      <span>Mô tả</span>
+                    </h3>
+                  </li>
+                  <li class="tab-link" [ngClass]="{'current':tab === 2}" (click)="tab = 2">
+                    <h3>
+                      <span>Chính sách vận chuyển</span>
+                    </h3>
+                  </li>
+                  <li class="tab-link" [ngClass]="{'current':tab === 3}" (click)="tab = 3">
+                    <h3>
+                      <span>Chính sách bảo hành</span>
+                    </h3>
+                  </li>
+                </ul>
+              </ul>
+
+              <div class="tab-content" [ngClass]="{'current':tab === 1}">
+                <div class="rte" [innerHTML]="data.data.tab1"></div>
+              </div>
+              <div class="tab-content" [ngClass]="{'current':tab === 2}">
+                <div class="rte" [innerHTML]="data.data.tab2"></div>
+              </div>
+              <div class="tab-content" [ngClass]="{'current':tab === 3}">
+                <div class="rte" [innerHTML]="data.data.tab3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="related-product">
+          <div class="heading">
+            <h2 class="title-head col-xs-12">
+              <a href="/all">Sản phẩm cùng loại</a>
+            </h2>
+          </div>
+          <div class="products owl-carousel owl-theme products-view-grid" id="slide-product-orther">
+            <div class="product-box col-md-12 col-xs-12 col-sp-12" *ngFor="let item of dataOther">
+              <div class="product-thumbnail">
+                <div class="sale-flash" *ngIf="item.data.priceOld !== null">SALE</div>
+                <a title="Áo Thun Nam" [routerLink]="['/san-pham',item.data.keyName,item.id]" class="text-center">
+                  <img class="bethua" style="padding-top: 0px;" alt="{{item.data.name}}" src="{{item.files[0].url}}">
+                </a>
+                <div class="view-product">
+                  <a class="btn btn-group right-to quick-view" href="javascript:;" (click)="quickView(item)">
+                    <span>Xem nhanh</span>
+                  </a>
+                </div>
+              </div>
+              <div class="product-info a-left">
+                <h3 class="product-name">
+                  <a title="{{item.data.name}}" [routerLink]="['/san-pham',item.data.keyName,item.id]">{{item.data.name}}</a>
+                </h3>
+                <div class="price-box clearfix">
+                  <div class="special-price">
+                    <span class="price product-price" *ngIf="item.data.price > 0">{{item.data.price | number}}₫</span>
+                    <span class="price product-price" *ngIf="item.data.price === 0">Liên hệ</span>
+                    <span class="price product-price-old">
+                      {{item.data.priceOld | number}}₫
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="product-action clearfix">
+                <div class="variants form-nut-grid">
+                  <div>
+                    <button [routerLink]="['/san-pham',item.data.keyName,item.id]" title="Chọn sản phẩm" class="btn-cart btn btn-gray left-to"
+                      type="button">
+                      Tùy chọn</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-product-view [data]="quickViewData"></app-product-view>

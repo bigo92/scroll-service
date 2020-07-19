@@ -1,0 +1,41 @@
+@import "variables";
+.img-product {
+  height: 340px;
+  width: 100% !important;
+  object-fit: contain;
+  object-position: center;
+  @include tablet-and-mobile {
+    height: 340px;
+  }
+}
+
+.product-action{
+  @include tablet-and-mobile{
+      display: none;
+  }
+}
+
+
+
+.w-btn{
+  border-bottom: solid 1px #94e07d;
+  height: 43px;
+}
+
+.category-name{
+    background: #5da945;
+    padding: 8px 23px;
+    font-size: 24px;
+    color: #FFF;
+    text-align: center;
+    text-decoration: none;
+    
+}
+
+.col-xs-12 {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+    

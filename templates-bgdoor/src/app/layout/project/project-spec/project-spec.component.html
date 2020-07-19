@@ -1,0 +1,21 @@
+<div class="aside-item">
+  <div>
+    <div class="heading">
+      <h2 class="title-head">Dự án nổi bật</h2>
+    </div>
+    <div class="list-blogs">
+      <div class="row">
+        <article class="blog-item blog-item-list col-xs-12 col-sm-12 col-md-12 col-lg-12" *ngFor="let item of data">
+          <h3 class="blog-item-name">
+            <a [routerLink]="['/du-an',item.dataSeo.url, item.id]" title="{{item.data.title}}">{{item.data.title}}</a>
+          </h3>
+          <p class="blog-item-summary">{{item.data.sumary}}
+          </p>
+          <div class="post-time">
+            {{item.dataDb.creationTime | date: 'dd/MM/yyyy hh:mm a'}}
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

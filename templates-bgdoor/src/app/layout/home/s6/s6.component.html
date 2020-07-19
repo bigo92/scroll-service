@@ -1,0 +1,17 @@
+<section class="awe-section-6">
+  <div class="container logo-widget-banner logo-block pd">
+    <div class="row block_content ">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <h3 class="logo-subheading">THƯƠNG HIỆU</h3>
+      </div>
+      <div class="col-xs-6 col-sm-4 col-md-2 logo-image-box" *ngFor="let item of data">
+        <div class="logo-img-banner logo-effect">
+          <a href="{{item.data.link}}">
+            <img src="{{item.files[0].url}}" alt="{{item.data.name}}"
+              class='img-responsive' />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

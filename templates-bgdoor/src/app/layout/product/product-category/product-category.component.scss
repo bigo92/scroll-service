@@ -1,0 +1,12 @@
+.listSidebar{
+    a{
+        span{
+            display: none;
+        }
+        &.active{
+            span{
+                display: block;
+            }
+        }
+    }
+}

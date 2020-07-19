@@ -1,0 +1,67 @@
+<section class="bread-crumb clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="breadcrumb" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+          <li class="home">
+            <a itemprop="url" href="/">
+              <span itemprop="title" class="brc-home">Trang chủ </span>
+            </a>
+            <span>
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </li>
+          <li>
+            <span itemprop="title"> Dự án</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="mm-0" class="mm-page mm-slideout">
+  <div class="container">
+    <div class="row">
+      <section class="right-content col-md-8 col-lg-8 ">
+        <div class="box-heading">
+          <h1 class="title-head">Dự án</h1>
+        </div>
+
+        <section class="list-blogs blog-main">
+          <article class="blog-item" *ngFor="let item of data">
+            <div class="blog-item-thumbnail">
+              <a [routerLink]="['/du-an',item.dataSeo.url,item.id]">
+                <img *ngIf="item.files.length>0" src="{{item.files[0].url}}" alt="{{item.data.title}}">
+              </a>
+            </div>
+            <div class="content-blog-text">
+              <h3 class="blog-item-name">
+                <a [routerLink]="['/du-an',item.dataSeo.url,item.id]" title="{{item.data.title}}">{{item.data.title}}</a>
+              </h3>
+              <div class="postby">
+                <span>Đăng bởi
+                  <b>BG Door </b></span> Lượt theo dõi ({{item.data.view}})
+              </div>
+              <p class="blog-item-summary margin-bottom-5">{{item.data.sumary}}</p>
+              <a [routerLink]="['/du-an',item.dataSeo.url,item.id]" class="btn btn-white">Xem chi tiết</a>
+            </div>
+          </article>
+          <div class="text-xs-left">
+            <app-paging [data]="paging" (change)="getData($event)"></app-paging>
+          </div>
+        </section>
+
+      </section>
+
+      <aside class="left left-content col-lg-4 col-md-4">
+        <app-project-category></app-project-category>      
+      </aside>
+
+      <aside class="left left-content col-lg-4 col-md-4">
+        <app-project-spec></app-project-spec>        
+      </aside>
+      
+    </div>
+  </div>
+</div>

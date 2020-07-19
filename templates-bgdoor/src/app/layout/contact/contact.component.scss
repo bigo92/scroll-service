@@ -1,0 +1,9 @@
+
+render-error{
+    color: rgb(206, 13, 13);
+}
+
+input.ng-invalid.ng-touched:not([type=file]),
+textarea.ng-invalid.ng-touched {
+    border: solid 1px rgb(206, 13, 13);
+}

@@ -1,0 +1,10 @@
+@import "variables";
+.rte{
+    @include tablet-and-mobile{
+        overflow: scroll;
+        .table{
+            min-width: 768px;
+            max-width: 768px;
+        }
+    }
+}

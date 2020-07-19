@@ -1,0 +1,83 @@
+{
+	"shared": {
+		"menu": {
+			"companyname": "Công ty CP công nghệ muối biển",
+			"home": "Trang chủ",
+			"about": "Giới thiệu",
+			"tech": "Công nghệ",
+			"device": "Thiết bị",
+			"products": "Sản phẩm",
+			"news": "Tin tức",
+			"service": "Dịch vụ",
+			"contact": "Liên hệ",
+			"sitemap": "Sitemap"
+		},
+		"hotline": "Đường dây nóng",
+		"yahoo": "Yahoo!",
+		"skype": "Skype",
+		"category": {
+			"product": "sản phẩm",
+			"prouct_search": "Tìm kiếm sản phẩm",
+			"btnSeach": "Tìm kiếm",
+			"online_support": "Hỗ trợ trực tuyến",
+			"website_link": "Liên kết website",
+			"news_events": "Tin tức - Sự kiện",
+			"statistics": "Thống kê truy cập"
+		},
+		"about-more":"Tìm hiểu thêm",
+		"notData": "Không có kết quả nào",
+		"product":{
+			"title":"SẢN PHẨM",
+			"description": "MÔ TẢ SẢN PHẨM",
+			"categoryChilPlaceholder" : "-- Danh mục con --",
+			"sortRank": "Hàng bán chạy nhất",
+			"sortTime": "Hàng mới nhất"
+		}
+	},
+	"contact": {
+		"heading": "Liên Hệ",
+		"name": {
+			"title": "Họ và tên*",
+			"placeholder": "Họ và Tên",
+			"required": "Bạn chưa nhập họ tên"
+		},
+		"address": {
+			"title": "Địa chỉ",
+			"placeholder": "Địa chỉ",
+			"required": "Bạn chưa nhập địa chỉ"
+		},
+		"email": {
+			"title": "E-mail",
+			"placeholder": "Địa chỉ email",
+			"required": "Bạn chưa nhập email",
+			"fomat": "Bạn nhập sai email"
+		},
+		"phone": {
+			"title": "Điện thoại",
+			"placeholder": "Số điện thoại",
+			"required": "Bạn chưa nhập số điện thoại",
+			"fomat": "Bạn nhập sai số điện thoại"
+		},
+		"title": {
+			"title": "Tiêu đề*",
+			"placeholder": "Tiêu đề",
+			"required": "Bạn chưa nhập tiêu đề"
+		},
+		"des": {
+			"title": "Nội dung*",
+			"placeholder": "Nội dung",
+			"required": "Bạn chưa nhập nội dung liên hệ"
+		},
+		"btnReset": "Viết lại",
+		"btnSend": "GỬI TIN NHẮN",
+		"btnContact": "Liên Hệ",
+		"alert":{
+			"title":"Thông tin của bạn đã được gửi thành công",
+			"sub_title": "Chúng tôi sẽ liên hệ với bạn sớm nhất có thể.",
+			"close": "Đóng"
+		}
+	},
+	"copyright":{
+		"text":"Bản quyền cho "
+	}
+}

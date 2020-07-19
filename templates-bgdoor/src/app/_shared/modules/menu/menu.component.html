@@ -1,0 +1,276 @@
+<header class="header header__nav" id="menu-website">
+  <div class="topbar">
+    <div class="container">
+      <div class="menu1">
+        <div class="row">
+          <div class="col-xs-7 a-left nav-top-left">
+            <span></span>
+            <div class="login_main">
+              <ul *ngIf="settingData">
+                <li *ngIf="settingData.facebook !== ''">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                  <a href="{{settingData.data.facebook}}" id="customer_login_link"> Facebook</a>
+                </li>
+                <li *ngIf="settingData.instagram !== ''">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                  <a href="{{settingData.data.instagram}}" id="customer_register_link"> Instagram</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-xs-5 pd">
+            <div class="top-cart-contain f-right">
+              <div class="mini-cart text-xs-right">
+                <div class="heading-cart">
+                  <a class="open-cart">
+                    <span class="cart-text">Giỏ hàng</span>
+                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                    <span class="cartCount count_item_pr" id="cart-total">{{giohang.length}}</span>
+                  </a>
+                  <div class="header_search search_form">
+                    <span class="btn btn-click fa fa-search"></span>
+                    <form class="input-group search-bar search_form" action="/san-pham/tim-kiem" method="get" role="search">
+                      <input type="search" name="query" value="" placeholder="Tìm kiếm sản phẩm... " class="input-group-field st-default-search-input search-text"
+                        autocomplete="off">
+                      <span class="input-group-btn">
+                        <button type="submit" class="btn icon-fallback-text">
+                          <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                      </span>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul class="list-inline f-right">
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="menu-bot-bar">
+    <div class="container ">
+      <div class="header-main">
+        <div class="row">
+          <div class="logo-header">
+            <div class="logo" *ngIf="settingData">
+              <h2>
+                <a href="/" class="logo-wrapper ">
+                  <img src="{{getImage('logo')}}" alt="logo ">
+                </a>
+              </h2>
+            </div>
+          </div>
+          <div>
+            <div class="search">
+              <div id="apollo-menu">
+                <nav id="cavas_menu" class="apollo-megamenu hidden-sm hidden-xs">
+                  <div class="" role="navigation">
+                    <div id="apollo-top-menu" class="collapse navbar-collapse">
+                      <ul class="nav navbar-nav megamenu">
+                        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                          <a [routerLink]="['/']" title="Trang Chủ" target="_self">
+                            <span class="">Trang Chủ</span>
+                          </a>
+                        </li>
+
+                        <li routerLinkActive="active">
+                          <a [routerLink]="['/gioi-thieu']" title="Giới thiệu" target="_self">
+                            <span class="">Giới thiệu</span>
+                          </a>
+                        </li>
+
+                        <li routerLinkActive="active">
+                          <a [routerLink]="['/du-an']" title="Dự án" target="_self">
+                            <span class="menu-title">Dự án</span>
+                          </a>
+                        </li>
+
+                        <li class="parent dropdown" routerLinkActive="active">
+                          <a class="dropdown-toggle has-category" [routerLink]="['/san-pham']" title="Sản Phẩm" target="_self">
+                            <span class="">Sản Phẩm</span>
+                            <b class="caret"></b>
+                          </a>
+                          <div class="dropdown-menu level1">
+                            <div class="dropdown-menu-inner">
+                              <div class="mega-col-inner">
+                                <ul>
+                                  <!-- <li class="">
+                                    <a class="" [routerLink]="['/san-pham','noi-bat']" title="Sản phẩm Nổi bật">
+                                      <span class="">Sản phẩm Nổi bật</span>
+                                    </a>
+                                  </li>
+
+                                  <li class="">
+                                    <a class="" [routerLink]="['/san-pham','moi']" title="Sản phẩm Mới">
+                                      <span class="">Sản phẩm Mới</span>
+                                    </a>
+                                  </li>
+
+                                  <li class="">
+                                    <a class="" [routerLink]="['/san-pham','khuyen-mai']" title="Sản phẩm khuyến mãi">
+                                      <span class="">Sản phẩm khuyến mãi</span>
+                                    </a>
+                                  </li> -->
+                                  <li class="" *ngFor="let item of listCategory">
+                                    <a class="" [routerLink]="['/san-pham', item.keyName]" title="item.name">
+                                      <span class="">{{item.name}}</span>
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li routerLinkActive="active">
+                          <a class="" [routerLink]="['/tin-tuc']" title="Tin Tức" target="_self">
+                            <span class="">Tin Tức</span>
+                          </a>
+                        </li>
+
+                        <li class="parent dropdown" routerLinkActive="active">
+                          <a class="dropdown-toggle has-category" href="javascript:;" title="Showroom" target="_self">
+                            <span class="">Showroom</span>
+                            <b class="caret"></b>
+                          </a>
+                          <div class="dropdown-menu level1">
+                            <div class="dropdown-menu-inner">
+                              <div class="mega-col-inner">
+                                <ul>
+                                  <li class="" *ngFor="let item of showroomData">
+                                    <a class="" target="_blank" href="{{item.data.link}}" title="{{item.data.name}}">
+                                      <span class="">{{item.data.name}}</span>
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
+
+                        <li routerLinkActive="active">
+                          <a [routerLink]="['/lien-he']" title="Liên Hệ" target="_self">
+                            <span class="">Liên Hệ</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </nav>
+              </div>
+              <div class="navbar-header">
+                <a class="navbar-toggle btn-menu-canvas" href="javascript:;" title="Toggle navigation" (click)="togleMenu()">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="fa fa-bars"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<section id="apollo-menucanvas" class="mm-menu mm-effect-slide mm-pageshadow mm-offcanvas mm-hasheader mm-hassearch" [ngClass]="{'mm-current mm-opened': openMenu}">
+  <div class="mm-search">
+    <input placeholder="Tìm kiếm" type="text" autocomplete="off">
+  </div>
+  <div class="mm-header">
+    <a class="mm-prev mm-btn mm-hidden"></a>
+    <a class="mm-title">Menu</a>
+    <a class="mm-next mm-btn mm-hidden"></a>
+  </div>
+  <div class="mm-panel mm-opened mm-current" id="mm-1">
+    <div class="mm-noresultsmsg">Không có kết quả.</div>
+    <ul class="mm-listview mm-first mm-last" id="lst-menu-item">
+      <li routerLinkActive="active">
+        <a [routerLink]="['/']" title="Trang Chủ" target="_self">
+          <span>Trang Chủ</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/gioi-thieu']" title="Giới thiệu">
+          <span class="">Giới thiệu</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/san-pham']" title="Sản Phẩm">
+          <span class="">Sản Phẩm</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/tin-tuc']" title="Tin Tức" target="_self">
+          <span>Tin Tức</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/lien-he']" title="Liên Hệ" target="_self">
+          <span>Liên Hệ</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="mm-panel mm-hidden" id="mm-2">
+    <div class="mm-header">
+      <a class="mm-btn mm-prev" href="#mm-1" data-target="#mm-1"></a>
+      <a class="mm-title">
+        Bộ Sưu Tập
+      </a>
+    </div>
+    <ul class="mm-listview mm-first mm-last">
+      <li class="parent ">
+        <a class="mm-next" href="#mm-3" data-target="#mm-3"></a>
+        <a class="" href="#" title="Hiển Thị">
+          <span class="">Hiển Thị</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="mm-panel mm-hidden" id="mm-3">
+    <div class="mm-header">
+      <a class="mm-btn mm-prev" href="#mm-2" data-target="#mm-2"></a>
+      <a class="mm-title">
+        Hiển Thị
+      </a>
+    </div>
+    <ul class="mm-listview mm-first mm-last">
+      <li class="">
+        <a class="" href="/dang-luoi" title="Dạng lưới">
+          <span class="">Dạng lưới</span>
+        </a>
+      </li>
+      <li class="">
+        <a class="" href="/dang-danh-sach" title="Dạng Danh sách">
+          <span class="">Dạng Danh sách</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="mm-panel mm-hidden" id="mm-4">
+    <div class="mm-header">
+      <a class="mm-btn mm-prev" href="#mm-1" data-target="#mm-1"></a>
+      <a class="mm-title">
+        Sản Phẩm
+      </a>
+    </div>
+    <ul class="mm-listview mm-first mm-last">
+      <li class="">
+        <a class="" href="/san-pham-noi-bat" title="Sản phẩm Nổi bật">
+          <span class="">Sản phẩm Nổi bật</span>
+        </a>
+      </li>
+      <li class="">
+        <a class="" href="/do-nam-theo-danh-sach" title="Sản phẩm Mới">
+          <span class="">Sản phẩm Mới</span>
+        </a>
+      </li>
+      <li class="">
+        <a class="" href="/san-pham-khuyen-mai" title="Sản phẩm khuyến mãi">
+          <span class="">Sản phẩm khuyến mãi</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>

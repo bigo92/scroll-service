@@ -1,0 +1,20 @@
+#quick-view-product {
+  .fancybox-overlay-fixed {
+    &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      background-color: black;
+      opacity: 0.7;
+    }
+  }
+
+  .swatch-color {
+    .color {
+        label{
+            border: solid 1px #ccc !important;
+        }
+    }
+}
+}

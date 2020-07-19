@@ -1,0 +1,74 @@
+<section class="awe-section-3">
+  <div class="section section_tab_product a-center">
+    <div class="container">
+      <h2>
+        <span>Sản phẩm</span>
+      </h2>
+      <div class="e-tabs">
+        <div class="row row-noGutter">
+          <div class="product-index">
+            <div class="content">
+              <div>
+                <ul class="tabs tabs-title clearfix">
+                </ul>
+                <div id="tab-1" class="tab-content">
+                  <div class="products row row-gutter-14 no-margin" *ngFor="let category of data">
+                    <div class="col-xs-12 text-left">
+                      <div class="w-btn">
+                          <a class="category-name" [routerLink]="['/san-pham',category.keyName]">{{category.name}}</a>
+                      </div>
+                    </div>
+                    <div class="col-xs-12">
+                      <div class="row">
+                          <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pd" *ngFor="let item of category.product">
+                              <div class="product-box col-md-12 col-xs-12 col-sp-12">
+                                <div class="product-thumbnail">
+                                  <div class="sale-flash" *ngIf="item.data.priceOld !== null">SALE</div>
+                                  <a [routerLink]="['/san-pham',item.data.keyName, item.id]" title="{{item.data.name}}" class="text-center">
+                                    <img class="img-product" *ngIf="item.files.length > 0" src="{{item.files[0].url}}" alt="{{item.data.name}}">
+                                  </a>
+                                  <div class="view-product">
+                                    <a href="javascript:;" class="btn btn-group right-to quickView" (click)="quickView(item)">
+                                      <span>Xem nhanh</span>
+                                    </a>
+                                  </div>
+                                </div>
+                                <div class="product-info a-left">
+                                  <h3 class="product-name">
+                                    <a [routerLink]="['/san-pham',item.data.keyName, item.id]" title="{{item.name}}">{{item.data.name}}</a>
+                                  </h3>
+                                  <div class="price-box clearfix">
+                                    <div class="special-price">
+                                      <span class="price product-price" *ngIf="item.data.price > 0">{{item.data.price | number}}₫</span>
+                                      <span class="price product-price" *ngIf="item.data.price == 0">Liên hệ</span>
+                                      <span class="price product-price-old" *ngIf="item.data.priceOld">
+                                        {{item.data.priceOld | number}}₫
+                                      </span>
+                                    </div>                            
+                                  </div>
+                                </div>
+                                <div class="product-action clearfix">
+                                  <div class="variants form-nut-grid">
+                                    <div>
+                                      <input class="hidden" type="hidden" name="variantId" value="9391750" />
+                                      <button [routerLink]="['/san-pham',item.data.keyName, item.id]" class="btn-cart btn btn-gray  left-to" title="Chọn sản phẩm" type="button">
+                                        Tùy chọn</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-product-view [data]="quickViewData"></app-product-view>

@@ -1,0 +1,53 @@
+@import "variables";
+render-error {
+  color: rgb(206, 13, 13);
+}
+
+input.ng-invalid.ng-touched:not([type=file]),
+textarea.ng-invalid.ng-touched {
+  border: solid 1px rgb(206, 13, 13);
+}
+
+.site-footer {
+  @include tablet-and-mobile{
+    margin-top: 30px;
+  }
+  .list-menu{
+    height: auto;
+  }
+}
+
+.footer-widget{
+  padding-bottom: 20px;
+}
+
+.left-footer {
+  height: 400px;
+  @include mobile {
+    height: 480px;
+    ;
+  }
+}
+
+.right-footer {
+  height: 400px;
+  @include tablet-and-mobile {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  @include mobile {
+    height: 250px;
+  }
+  iframe {
+    width: 570px;
+    height: 400px;
+    @include tablet-and-mobile {
+      width: 100%;
+      height: 400px;
+    }
+    @include mobile {
+      height: 250px;
+    }
+  }
+
+}

@@ -1,0 +1,86 @@
+{
+  "shared": {
+	 "menu":{
+		 "companyname": "Sea Salt Technology Joint Stock Company - Saltechco",
+		"home": "Home",
+		"about": "About us",
+		"tech": "Tech",
+		"device": "Device",
+		"products": "Products",
+		"news":"News",
+		"service":"Service",
+		"contact":"Contact ",
+		"sitemap": "Sitemap"
+	},
+	"hotline": "Hotline",
+	"yahoo": "Yahoo!",
+	"skype": "Skype",
+	"category":{
+		"product": "Product",
+		"prouct_search": "Prouct search",
+		"btnSeach": "Seach",
+		"online_support": "Online support",
+		"website_link": "Website link",
+		"news_events":"News - Events",
+		"statistics":"Statistics"
+	},
+	"about-more":"more",
+	"notData": "No results",
+	"product":{
+		"title":"PRODUCT",
+		"description": "DESCRIPTION",
+		"categoryChilPlaceholder" : "-- Subcategory --",
+		"sortRank": "Top sellers",
+		"sortTime": "New products"
+	}
+  },
+  "contact":{
+	"heading": "Contact",
+	"name": {
+		"title": "Full Name*",
+		"placeholder": "Full Name",
+		"required": "Please enter your name"
+	},
+	"address":{
+		"title": "Address",
+		"placeholder": "address",
+		"required": "Please enter address"
+	},
+	"email":{
+		"title": "E-mail",
+		"placeholder": "Address Email",
+		"required": "Please enter email",
+		"fomat": "Please enter correct email"
+	},
+	"phone":{
+		"title": "Telephone",
+		"placeholder": "Telephone",
+		"required": "Please enter phone number",
+		"fomat": "Please enter correct phone number"
+	},
+	"title":{
+		"title": "Title*",
+		"placeholder": "Title",
+		"required": "Fill your title contact !"
+	},
+	"des":{
+		"title": "Content*",
+		"placeholder": "Content",
+		"required": "Fill your contact detail !"
+	},
+	
+	"btnReset": "Reset",
+	"btnSend": "Send The Contact",
+	"btnContact": "Contact",
+	"alert":{
+		"title":"Your contact request has been submitted",
+		"sub_title": "We will get back to you shortly.",
+		"close": "Close"
+	}
+  },
+  "copyright":{
+	"text":"Copyright "
+  },
+  "MSG": {
+  }
+}

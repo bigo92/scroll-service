@@ -1,0 +1,42 @@
+.menu-bot-bar {
+  background-color: transparent !important;
+}
+
+#apollo-menu .navbar-nav>li>a {
+  color: #1f1c1c;
+  font-size: 14px;
+}
+
+#apollo-menu .navbar-nav>li>a:hover,
+#apollo-menu .navbar-nav>li>a:focus,
+#apollo-menu .navbar-nav>li>a:active {
+  color: #171414;
+  background: transparent;
+}
+
+#apollo-menu .dropdown-menu {
+  background: #FFFFFF;
+}
+
+#apollo-menu .dropdown-menu .menu-title {
+  color: #3d3234;
+  font-size: 13px;
+}
+
+#apollo-menu .dropdown-menu .menu-title:hover,
+#apollo-menu .dropdown-menu li a:hover {
+  color: #292626;
+}
+
+#apollo-menu .dropdown-menu li a {
+  color: #101010;
+  font-size: 13px;
+}
+
+#apollo-menu .product-block .product-meta .product-name:hover {
+  color: #292626;
+}
+
+#apollo-menu .active a {
+  border: none;
+}

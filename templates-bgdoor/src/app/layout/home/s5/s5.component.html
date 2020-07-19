@@ -1,0 +1,70 @@
+<section class="awe-section-5">
+  <div class="bg-5">
+    <div class="container">
+      <div class="row no-margin">
+        <article id="apolloblogs" class="icenter home_blogs block col-md-12 col-lg-4 pd">
+          <h3 class="page-subheading">Tin nổi bật</h3>
+          <div class="block_content">
+            <div class="row no-margin">
+              <div class="owl-carousel owl-theme slide" id="post-slide">
+                <div class="blog-item item" *ngFor="let item of blogData">
+                  <div class="image">
+                    <img src="{{item.files[0].url}}" class="img-responsive replace-2x img-blog-index" alt="{{item.data.title}}">
+                  </div>
+                  <div class="clearfix">
+                    <h4>
+                      <a [routerLink]="['/tin-tuc',item.dataSeo.url,item.id]" title="{{item.data.title}}">{{item.data.title}}</a>
+                    </h4>
+
+                    <div class="blog-shortinfo">
+                      <p>{{item.sumary}}</p>
+                    </div>
+
+                    <div class="blog-meta">
+
+                      <span class="blog-created">
+                        <span class="icon-calendar">
+                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                          <time datetime="2017-03-09"> {{item.dataDb.creationTime | date: 'dd/MM/yyyy'}}
+                          </time>
+                        </span>
+                      </span>
+                    </div>
+                    <a class="link" [routerLink]="['/tin-tuc',item.dataSeo.url,item.id]">Đọc thêm</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div id="block_testimonials" class="block col-md-12 col-lg-8 pd">
+          <h3 class="page-subheading">ĐÁNH GIÁ</h3>
+          <div class="block_content" [ngStyle]="{'background':'url('+ url +')'}">
+            <div class="owl-carousel owl-theme clearfix" id="comment-slide">
+              <div class="item" *ngFor="let item of commentData">
+                <div class="testimonial">
+                  <div class="testimonial-cont pull-left">
+                    <div class="testimonial-image">
+                      <img src="{{item.files[0].url}}" alt='{{item.data.name}}' class='img-responsive' />
+                    </div>
+                    <div class="testimonial-bottom">
+                      <div class="testimonial-name">
+                        {{item.data.name}}
+                      </div>
+                      <div class="testimonial-regency">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="testimonial-info">{{item.data.content}}</div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

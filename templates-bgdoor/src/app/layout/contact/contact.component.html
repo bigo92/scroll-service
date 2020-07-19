@@ -1,0 +1,149 @@
+<section class="bread-crumb clearfix"  [ngStyle]="{'background':'url('+ url +')'}">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="breadcrumb" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+          <li class="home">
+            <a itemprop="url" href="/">
+              <span itemprop="title" class="brc-home">Trang chủ </span>
+            </a>
+            <span>
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </li>
+
+          <li>
+            <span itemprop="title"> Liên Hệ</span>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact_page">
+  <div class="container">
+    <div class="row no-margin">
+
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pd">
+
+        <div class="maps_contact">
+          <div class="iFrameMap" *ngIf="dataSetting">
+            <div class="google-map">
+              <div id="contact_map" class="map">
+                  <iframe [src]="dataSetting.data.map | safe" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pd text-contact-left">
+          <div class="title_page_inner">
+            <h1>
+              <a href="#">Liên Hệ</a>
+            </h1>
+          </div>
+          <div class="social_contact" *ngIf="dataSetting">
+            <ul>
+              <li class="active">
+                <a href="{{dataSetting.data.facebook}}">Facebook</a>
+              </li>
+              <li>|</li>
+              <li>
+                <a href="{{dataSetting.data.instagram}}">Instagram</a>
+              </li>
+              <li>|</li>
+              <li>
+                <a href="{{dataSetting.data.google}}">Google +</a>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="headquarters_contact" *ngIf="dataSetting">
+            <h3>TRỤ SỞ CHÍNH_HÀ NỘI</h3>
+            <ul>
+              <li>
+                <div class="icon_contact">
+                  <i class="fa fa-map-marker"></i>
+                </div>
+                <div class="text_contact">{{dataSetting.data.address}}</div>
+              </li>
+              <li>
+                <div class="icon_contact">
+                  <i class="fa fa-map-marker"></i>
+                </div>
+                <div class="text_contact">{{dataSetting.data.factory}}</div>
+              </li>
+              <li>
+                <div class="icon_contact">
+                  <i class="fa fa-phone"></i>
+                </div>
+                <div class="text_contact">
+                  <a href="tel:{{dataSetting.data.phone}}" title="Liên hệ : {{dataSetting.data.phone}}">{{dataSetting.data.phone}}</a>
+                </div>
+              </li>
+              <li>
+                <div class="icon_contact">
+                  <i class="fa fa-envelope"></i>
+                </div>
+                <div class="text_contact">
+                  <a href="mailto:{{dataSetting.data.email}}">{{dataSetting.data.email}}</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="form_contact">
+          <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>          
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pd text-contact-info">
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                  <div class="form-group">
+                    <label class="form-group-contact">Tên
+                      <strong style="color:red;">*</strong>
+                    </label>
+                    <input type="text" class="form-control" formControlName="name">
+                    <render-error [data]="myForm.get('name')"></render-error>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                  <div class="form-group">
+                    <label class="form-group-contact">Email
+                      <strong style="color:red;">*</strong>
+                    </label>
+                    <input type="email" class="form-control form-control-lg" formControlName="email">
+                    <render-error [data]="myForm.get('email')"></render-error>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                  <div class="form-group ">
+                    <label class="form-group-contact">Số điện thoại
+                      <strong style="color:red;">*</strong>
+                    </label>
+                    <input type="text" class="form-control" formControlName="phone">
+                    <render-error [data]="myForm.get('phone')"></render-error>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="form-group">
+                    <label class="mes-content form-group-contact" style="margin:10px 0 10px 0;">Tin nhắn
+                      <strong style="color:red;">*</strong>
+                    </label>
+                    <textarea rows="6" formControlName="content"></textarea>
+                    <render-error [data]="myForm.get('content')"></render-error>
+                  </div>
+                </div>
+                <div class="button-submit" style="clear:both;padding-left:15px;">
+                  <button type="submit" class="btn btn-contact btn-contact2" [disabled]="isSubmit">{{isSubmit === true? 'Đang gửi...': 'Gửi tin nhắn'}}</button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

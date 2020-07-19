@@ -1,0 +1,157 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "variables";
+.product-box .sale-flash {
+  background-color: #5da945;
+  &:before {
+    border-top: 10px solid #5da945;
+  }
+}
+
+.navbar-nav li.active a:before {
+  color: #5da945 !important;
+  text-shadow: 8px 0 #5da945, -8px 0 #5da945 !important;
+}
+
+.product-action {
+  bottom: 25px;
+}
+
+// ma mau
+.color-trang{
+  background-color: white !important;
+  color: black !important;
+}
+
+.color-nau{
+  background-color: SaddleBrown !important;
+  color: black !important;
+}
+
+.color-sua{
+  background-color: FloralWhite !important;
+  color: black !important;
+}
+
+.color-vang{
+  background-color: yellow !important;
+  color: black !important;
+}
+
+.color-ghi{
+  background-color: gray !important;
+  color: black !important;
+}
+
+//------
+.section_tab_product h2:before {
+  background: url('assets/images/icon-default.png') no-repeat;
+}
+
+.logo-subheading:before {
+  background: url('assets/images/icon-default.png') no-repeat;
+}
+
+#categories_block h4:before {
+  background: url('assets/images/icon-default.png') no-repeat;
+}
+
+#categories_block .block_content ul li a {
+  span {
+    color: #5da945;
+  }
+}
+
+.sidebar .title-head span:before {
+  background: url('assets/images/icon-default.png') no-repeat;
+}
+
+#products_sider_block .title_block span:before {
+  background: url('assets/images/icon-default.png') no-repeat;
+}
+
+//tun customer
+.product-thumbnail .view-product>a {
+  border: 3px solid #5da945;
+  color: #5da945;
+  background: #fff;
+}
+
+.product-thumbnail .view-product>a:hover {
+  color: #fff;
+  background: #5da945;
+}
+
+.product-action .btn-cart:hover {
+  background: #5da945;
+  color: #fff;
+  border: 3px solid #5da945;
+}
+
+.product-action .btn-cart {
+  background: #fff;
+  color: #5da945;
+  font-weight: 700;
+  border: 3px solid #5da945;
+}
+
+.block__collection-item .info-product>a:before {
+  content: "";
+  background: #5da945;
+}
+
+.login_main ul li i {
+  color: #5da945;
+}
+
+.login_main ul li a {
+  color: #5da945;
+}
+
+.site-footer form #subscribe:hover {
+  background: #333;
+}
+
+.site-footer form #subscribe {
+  background: #5da945;
+}
+
+.owl-carousel .owl-nav .owl-prev:before, .owl-carousel .owl-nav .owl-next:before {
+  color: #5da945;
+}
+
+.phonering-alo-phone.phonering-alo-green[_ngcontent-c5] .phonering-alo-ph-img-circle[_ngcontent-c5] {
+  background-color: #5da945 !important;
+}
+
+app-phone-ring{
+  z-index: 99999;
+  position: relative;
+}
+
+.back-to-top.show {
+  bottom: 90px !important;
+  z-index: 999;
+}
+
+.block-footer-social .social-icons li .icon-fallback-text {
+  color: #5da945;
+}
+
+footer .back-to-top {
+  color: #5da945;
+  font-size: 31px;
+  margin: 10px;
+}
+
+footer .list-menu {
+  margin-bottom: 10px;
+  line-height: 1em;
+  text-transform: capitalize;
+  height: 260px;
+  overflow: auto;
+}
+
+.site-footer .footer-widget h3 {
+  padding: 35px 0 10px;
+}

@@ -1,0 +1,9 @@
+<section class="awe-section-1">
+  <div class="home-slider owl-carousel owl-theme" id="home-silde">
+    <div class="item" *ngFor="let item of data">
+      <a href="{{item.data.link}}" class="clearfix">
+        <img src="{{item.files[0].url}}" alt="{{item.data.name}}">
+      </a>
+    </div>    
+  </div>
+</section>

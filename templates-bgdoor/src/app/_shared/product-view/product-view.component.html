@@ -1,0 +1,71 @@
+<div id="quick-view-product" class="quickview-product in" style="display: none;">
+  <div class="quickview-overlay fancybox-overlay fancybox-overlay-fixed"></div>
+  <div class="quick-view-product" *ngIf="data">
+    <div class="block-quickview primary_block row">
+      <div class="product-left-column col-xs-12 col-sm-4 col-md-4">
+        <div class="clearfix image-block">
+          <span class="view_full_size">
+            <a class="img-product" title="" href="javscript:void(0)">
+              <img id="product-featured-image-quickview" class="img-responsive product-featured-image-quickview" src="{{data.files[0].url}}"
+                alt="quickview">
+            </a>
+          </span>
+          <div class="loading-imgquickview" style="display:block;"></div>
+        </div>
+        <div class="more-view-wrapper clearfix">
+          <div id="thumbs_list_quickview">
+            <ul class="product-photo-thumbs quickview-more-views-owlslider" id="thumblist_quickview"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="product-center-column product-info product-item col-xs-12 col-sm-8 col-md-8" id="product-5887717">
+        <h3>
+          <span class="qwp-name">{{data.data.name}}</span>
+        </h3>
+        <div class="quickview-info">
+          <span class="prices">
+            <span class="price sale-price" *ngIf="data.data.price > 0">{{data.data.price | number}}₫</span>
+            <span class="price sale-price" *ngIf="data.data.price === 0">Liên hệ</span>
+            <del class="old-price" *ngIf="data.data.priceOld !== null">{{data.data.priceOld | number}}₫</del>
+          </span>
+        </div>
+        <div class="product-description rte">{{data.data.sumary}}</div>
+        <a [routerLink]="['/san-pham',data.data.keyName, data.id]" class="view-more">Xem chi tiết</a>
+        <div class="variants form-ajaxtocart">
+          <div class="swatch clearfix" data-option-index="0">
+            <div class="header">Kích thước</div>
+            <div class="swatch-element M available" *ngFor="let item of data.data.size;let i = index">
+              <input id="swatch-size-{{i}}" type="radio" name="option-0" value="{{item}}" [checked]="i===0">
+              <label for="swatch-size-{{i}}">
+                {{item}}
+              </label>
+            </div>
+            </div>
+          
+            <div class="swatch-color swatch clearfix" data-option-index="1">
+                <div class="header">Màu sắc</div>
+                <div class="swatch-element color black available" *ngFor="let item of data.data.color;let i = index">
+                  <div class="tooltip">Màu {{item}}</div>
+                  <input id="swatch-color-{{i}}" type="radio" name="option-1" value="{{item}}" [checked]="i === 0">
+                  <label for="swatch-color-{{i}}" class="color-{{clearText(item)}}"></label>
+                </div>
+              </div>
+              
+          <div class="clearfix"></div>
+
+          <div class="quantity_wanted_p">
+            <label for="quantity-detail" class="quantity-selector">Số lượng</label>
+            <input type="text" id="quantity-detail" name="quantity" [textMask]="{mask: mask}" value="1" title="Số Lượng" class="quantity-selector text-center quantity-cart">
+            <button type="button" name="add" class="btn btn-primary add_to_cart add_to_cart_detail ajax_addtocart add-cart" [attr.jsonData]="gh.JSONData(data)">
+              <span>Mua hàng</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <a title="Close" class="quickview-close close-window" href="javascript:;">
+      <i class="fa fa-times-circle"></i>
+    </a>
+  </div>
+</div>

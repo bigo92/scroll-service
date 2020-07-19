@@ -1,0 +1,194 @@
+<footer class="footer clearboth">
+  <div class="container text-res">
+    <div class="row no-margin">
+      <div class="left-footer col-xs-12 col-sm-12 col-md-6 pd" *ngIf="settingData">
+        <div class="col-xs-12 col-sm-12 col-md-12 ">
+          <h4>THÔNG TIN SHOP</h4>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 info-content-pd">
+          <p>{{settingData.data.description}}</p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 ">
+          <span>
+            <i class="fa fa-map-marker"></i> {{settingData.data.address}}</span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 ">
+          <span>
+            <i class="fa fa-map-marker"></i> {{settingData.data.factory}}</span>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+          <a href="tel:{{settingData.data.phone}}" title="Liên hệ : {{settingData.data.phone}}">{{settingData.data.phone}}</a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6 ">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+          <a href="mailto:{{settingData.data.email}}">
+            {{settingData.data.email}}
+          </a>
+        </div>
+      </div>
+
+      <div class="right-footer col-xs-12 col-sm-12 col-md-6 pd">
+        <div class="owl-carousel owl-theme" id="lst-videos">
+          <div class="item" *ngFor="let item of dataVideo">
+            <iframe [src]="item.video | safe" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-inner padding-top-10 padding-bottom-20">
+          <div class="row no-margin">
+            <!-- 4 block link -->
+            <div class="col-xs-12 col-sm-6 col-lg-3 col-md-3">
+              <div class="footer-widget">
+                <h3>
+                  <span>Thông tin</span>
+                </h3>
+                <ul class="list-menu">
+                  <li>
+                    <a [routerLink]="['/gioi-thieu']">Giới thiệu</a>
+                  </li>
+                  <li>
+                    <a [routerLink]="['/du-an','noi-bat']">Dự án nổi bật</a>
+                  </li>
+                  <li>
+                    <a [routerLink]="['/du-an']">Dự án mới</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-3 col-md-3">
+              <div class="footer-widget">
+                <h3>
+                  <span>Tin tức</span>
+                </h3>
+                <ul class="list-menu">
+                  <li>
+                    <a routerLink="['/tin-tuc','blog']">Blog</a>
+                  </li>
+                  <li>
+                    <a [routerLink]="['/tin-tuc','noi-bat']">Tin nổi bật</a>
+                  </li>
+                  <li>
+                    <a routerLink="['/tin-tuc']">Tin mới</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-3 col-md-3">
+              <div class="footer-widget">
+                <h3>
+                  <span>Sản phẩm</span>
+                </h3>
+                <ul class="list-menu">
+                  <li>
+                    <a [routerLink]="['/san-pham','noi-bat']">Sản phẩm Nổi bật</a>
+                  </li>
+
+                  <li>
+                    <a [routerLink]="['/san-pham','moi']">Sản phẩm Mới</a>
+                  </li>
+
+                  <li>
+                    <a [routerLink]="['/san-pham','khuyen-mai']">Sản phẩm khuyến mãi</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-3 col-md-3">
+              <div class="footer-widget">
+                <h3>
+                  <span>Chính sách & Bảo hành</span>
+                </h3>
+                <ul class="list-menu">
+                  <li>
+                    <a [routerLink]="['/page','huong-dan-dat-hang',14]">Hướng dẫn đặt hàng</a>
+                  </li>
+                  <li>
+                    <a [routerLink]="['/page','chinh-sach-van-chuyen',15]">Chính sách vận chuyển</a>
+                  </li>
+                  <li>
+                    <a [routerLink]="['/page','chinh-sach-bao-hanh',16]">Chính sách bảo hành</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tool__module">
+              <div class="row no-margin">
+                <div class="col-xs-12 col-sm-12 col-md-9 pd">
+                  <div class="footer-widget no-border">
+                    <h3 class="for-form">
+                      <span>Đăng ký nhận thông tin</span>
+                    </h3>
+                    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+                      <button class="btn btn-white subscribe" name="subscribe" id="subscribe" [disabled]="isSubmit">
+                        <i class="fa fa-paper-plane"></i>
+                      </button>
+                      <input type="email" value="" placeholder="Email của bạn" name="EMAIL" id="mail" aria-label="" formControlName="email">
+                      <!-- <render-error [data]="myForm.get('email')"></render-error> -->
+                    </form>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-3 pd" *ngIf="settingData">
+                  <div class="block-footer-social">
+                    <ul class="inline-list social-icons">
+                      <li>
+                        <a class="icon-fallback-text" href="{{settingData.data.twitter}}">
+                          <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="icon-fallback-text" href="{{settingData.data.facebook}}">
+                          <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a class="icon-fallback-text" href="{{settingData.data.pinterest}}">
+                          <i class="fa fa-pinterest" aria-hidden="true"></i>
+                        </a>
+                      </li>
+
+
+                      <li>
+                        <a class="icon-fallback-text" href="{{settingData.data.google}}" rel="publisher">
+                          <i class="fa fa-google-plus" aria-hidden="true"></i>
+                        </a>
+                      </li>
+
+                      <li>
+                        <a class="icon-fallback-text" href="{{settingData.data.instagram}}">
+                          <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyright clearfix">
+    <div class="container">
+      <div class="inner clearfix">
+        <div class="row" *ngIf="settingData">
+          <div class="text-center">
+            {{settingData.data.license}}
+          </div>
+        </div>
+      </div>
+      <div class="back-to-top">
+        <i class="fa  fa-arrow-circle-up"></i>
+      </div>
+    </div>
+  </div>
+</footer>

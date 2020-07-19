@@ -1,0 +1,258 @@
+<section class="bread-crumb clearfix">
+  <div class="container">
+    <div class="row" *ngIf="data">
+      <div class="col-xs-12">
+        <ul class="breadcrumb" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+          <li class="home">
+            <a itemprop="url" href="/">
+              <span itemprop="title" class="brc-home">Trang chủ </span>
+            </a>
+            <span>
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </li>
+
+          <li>
+            <a itemprop="url" href="/tin-tuc">
+              <span itemprop="title"> Tin tức </span>
+            </a>
+            <span>
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </li>
+          <li>
+            <span itemprop="title"> {{data.data.title}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="mm-0" class="mm-page mm-slideout">
+  <div class="container article-wraper">
+    <div class="row" *ngIf="data">
+      <section class="right-content col-lg-9 ">
+        <article class="article-main" itemscope="" itemtype="http://schema.org/Article">
+          <div class="row" *ngIf="data">
+            <div class="col-lg-12">
+              <h1 class="title-head">
+                <a href="/mot-thuy-thu" itemprop="name">{{data.data.title}}</a>
+              </h1>
+              <div class="postby">
+                <span>Đăng bởi
+                  <b>Sáng Tạo Trẻ</b> vào lúc  {{data.dataDb.creationTime | date: 'dd-MM-yyyy hh:mm'}} </span>
+              </div>
+              <div class="article-details">
+                <div class="article-content" itemprop="description">
+                  <div class="rte" [innerHtml]="data.data.content">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+
+              <div class="social-media" data-permalink="https://ap-boutique.bizwebvietnam.net/mot-thuy-thu">
+                <label>Chia sẻ: </label>
+
+                <a target="_blank" href="//www.facebook.com/sharer.php?u=https://ap-boutique.bizwebvietnam.net/mot-thuy-thu" class="share-facebook"
+                  title="Chia sẻ lên Facebook">
+                  <i class="fa fa-facebook-official"></i>
+                </a>
+                <a target="_blank" href="//twitter.com/share?text=Mốt Thủy Thủ&amp;url=https://ap-boutique.bizwebvietnam.net/mot-thuy-thu"
+                  class="share-twitter" title="Chia sẻ lên Twitter">
+                  <i class="fa fa-twitter"></i>
+                </a>
+
+                <a target="_blank" href="//pinterest.com/pin/create/button/?url=https://ap-boutique.bizwebvietnam.net/mot-thuy-thu&amp;media=http:1024x1024&amp;description=Mốt Thủy Thủ"
+                  class="share-pinterest" title="Chia sẻ lên pinterest">
+                  <i class="fa fa-pinterest"></i>
+                </a>
+
+                <a target="_blank" href="//plus.google.com/share?url=https://ap-boutique.bizwebvietnam.net/mot-thuy-thu" class="share-google"
+                  title="+1">
+                  <i class="fa fa-google-plus"></i>
+                </a>
+
+              </div>
+            </div>
+
+            <div class="col-xs-12">
+
+
+              <div id="article-comments">
+                <h5 class="title-form-coment hidden">Bình luận</h5>
+                <div class="hidden">11 bình luận</div>
+
+                <div class="article-comment clearfix">
+                  <figure class="article-comment-user-image">
+                    <img src="https://www.gravatar.com/avatar/6039e7fa0da054b737f7e482377059e1?s=110&amp;d=identicon" alt="binh-luan" class="block">
+                  </figure>
+
+                  <div class="article-comment-user-comment">
+                    <p class="user-name-comment">
+                      <strong>duc</strong>
+                      <a href="#article_comments" class="btn-link pull-xs-right hidden">Trả lời</a>
+                    </p>
+                    <span class="article-comment-date-bull">16/06/2017</span>
+                    <p>check ti coi</p>
+
+                  </div>
+                </div>
+
+                <div class="article-comment clearfix">
+                  <figure class="article-comment-user-image">
+                    <img src="https://www.gravatar.com/avatar/e3f739c8e87f23ba426af2af4d013ae1?s=110&amp;d=identicon" alt="binh-luan" class="block">
+                  </figure>
+
+                  <div class="article-comment-user-comment">
+                    <p class="user-name-comment">
+                      <strong>cehck</strong>
+                      <a href="#article_comments" class="btn-link pull-xs-right hidden">Trả lời</a>
+                    </p>
+                    <span class="article-comment-date-bull">12/06/2017</span>
+                    <p>12345</p>
+
+                  </div>
+                </div>
+
+                <div class="article-comment clearfix">
+                  <figure class="article-comment-user-image">
+                    <img src="https://www.gravatar.com/avatar/d489c9f30f5158e52bbf02a7c3e6111e?s=110&amp;d=identicon" alt="binh-luan" class="block">
+                  </figure>
+
+                  <div class="article-comment-user-comment">
+                    <p class="user-name-comment">
+                      <strong>ádfasdfa</strong>
+                      <a href="#article_comments" class="btn-link pull-xs-right hidden">Trả lời</a>
+                    </p>
+                    <span class="article-comment-date-bull">12/06/2017</span>
+                    <p>xcadsfdsfsdf</p>
+
+                  </div>
+                </div>
+
+                <div class="article-comment clearfix">
+                  <figure class="article-comment-user-image">
+                    <img src="https://www.gravatar.com/avatar/6039e7fa0da054b737f7e482377059e1?s=110&amp;d=identicon" alt="binh-luan" class="block">
+                  </figure>
+
+                  <div class="article-comment-user-comment">
+                    <p class="user-name-comment">
+                      <strong>Check</strong>
+                      <a href="#article_comments" class="btn-link pull-xs-right hidden">Trả lời</a>
+                    </p>
+                    <span class="article-comment-date-bull">12/06/2017</span>
+                    <p>hien ra di xem nào</p>
+
+                  </div>
+                </div>
+
+                <div class="article-comment clearfix">
+                  <figure class="article-comment-user-image">
+                    <img src="https://www.gravatar.com/avatar/d489c9f30f5158e52bbf02a7c3e6111e?s=110&amp;d=identicon" alt="binh-luan" class="block">
+                  </figure>
+
+                  <div class="article-comment-user-comment">
+                    <p class="user-name-comment">
+                      <strong>duc</strong>
+                      <a href="#article_comments" class="btn-link pull-xs-right hidden">Trả lời</a>
+                    </p>
+                    <span class="article-comment-date-bull">12/06/2017</span>
+                    <p>fdfasdfasdfs</p>
+
+                  </div>
+                </div>
+
+              </div>
+              <div class="text-xs-right">
+
+                <nav>
+                  <ul class="pagination clearfix">
+
+                    <li class="page-item disabled">
+                      <a class="page-link" href="#">«</a>
+                    </li>
+
+
+
+
+
+                    <li class="active page-item disabled">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+
+
+
+
+                    <li class="page-item">
+                      <a class="page-link" href="/mot-thuy-thu?page=2">2</a>
+                    </li>
+
+
+
+                    <li class="page-item">
+                      <a class="page-link" href="/mot-thuy-thu?page=3">3</a>
+                    </li>
+
+
+
+
+                    <li class="page-item">
+                      <a class="page-link" href="/mot-thuy-thu?page=2">»</a>
+                    </li>
+
+                  </ul>
+                </nav>
+
+              </div>
+
+
+
+              <form accept-charset="UTF-8" action="/posts/mot-thuy-thu/comments" id="article_comments" method="post">
+                <input name="FormType" type="hidden" value="article_comments">
+                <input name="utf8" type="hidden" value="true">
+                <div class="col-lg-12 style-no-padding pd success-comment">
+
+
+                </div>
+
+
+                <div class="col-lg-12">
+                  <div class="form-coment margin-bottom-30">
+                    <div class="row">
+                      <div class="">
+                        <h5 class="title-form-coment">VIẾT BÌNH LUẬN CỦA BẠN:</h5>
+                      </div>
+                      <fieldset class="form-group col-xs-12 col-sm-12 col-md-12">
+                        <input placeholder="Họ tên" type="text" class="form-control form-control-lg" value="" id="full-name" name="Author" required="">
+                      </fieldset>
+                      <fieldset class="form-group col-xs-12 col-sm-12 col-md-12">
+                        <input placeholder="Email" type="email" class="form-control form-control-lg" value="" id="email" name="Email" required="">
+                      </fieldset>
+                      <fieldset class="form-group col-xs-12 col-sm-12 col-md-12">
+                        <textarea placeholder="Nội dung" class="form-control form-control-lg" id="comment" name="Body" rows="6" required=""></textarea>
+                      </fieldset>
+                      <div>
+                        <button type="submit" class="btn btn-white">Gửi</button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End form mail -->
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </article>
+      </section>
+
+  
+
+      <aside class="left left-content col-lg-3 ">
+        <app-project-spec></app-project-spec>
+      </aside>
+
+    </div>
+  </div>
+</div>

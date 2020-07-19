@@ -1,0 +1,28 @@
+<div id="categories_block" class="block sidebar_block_custom">
+    <h4 class="title_block">Danh mục
+      <i class="fa fa-plus-circle hidden-lg hidden-md hidden-sm"></i>
+    </h4>
+    <div class="block_content">
+      <ul class="list-block list-group list-unstyled listSidebar">
+        <li>
+          <a [routerLink]="['/tin-tuc']" title="Tất cả tin tức" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            Tất Cả Tin Tức
+            <span id="leo-cat-1057281" class="leo-qty pull-right"> --- </span>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/tin-tuc','noi-bat']" title="Sản Phẩm Nổi Bật" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            Tin Nổi Bật
+            <span id="leo-cat-1057281" class="leo-qty pull-right"> --- </span>
+          </a>
+        </li>        
+        <li *ngFor="let item of data">
+          <a [routerLink]="['/tin-tuc',item.keyName]" title="{{item.name}}" routerLinkActive="active">
+            {{item.name}}
+            <span class="leo-qty pull-right"> --- </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

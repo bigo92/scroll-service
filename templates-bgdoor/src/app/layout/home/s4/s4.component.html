@@ -1,0 +1,20 @@
+<section class="awe-section-4">
+  <div class="container widget-banner block">
+    <div class="row block_content" *ngIf="data">
+      <div class="col-xs-12 col-sm-6 col-md-6 image-box">
+        <div class="img-banner effect">
+          <a href="{{data.data.link1}}">
+            <img src="{{data.files[0].url}}" alt="{{data.files[0].name}}" class='img-responsive' />
+          </a>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-6 image-box">
+        <div class="img-banner effect">
+          <a href="{{data.data.link2}}">
+            <img src="{{data.files[1].url}}" alt="{{data.files[1].name}}" class='img-responsive' />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

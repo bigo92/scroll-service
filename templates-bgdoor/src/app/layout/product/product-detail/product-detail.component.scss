@@ -1,0 +1,52 @@
+@import "variables";
+app-product-detail{
+    .swatch-element{
+        margin-top: 35px !important;
+    }
+    
+    .bethua{
+        display: inline-block !important;
+    }
+
+    .quantity-cart{
+        height: 48px;
+    }
+
+    .header{
+        z-index: unset;
+    }
+
+    #zoom_01{
+        height: 380px;
+    }
+
+    .swatch-color {
+        .color {
+            label{
+                border: solid 1px #ccc !important;
+            }
+        }
+    }
+    #lst-image-for-detail{
+        margin-top: 10px;
+    }
+
+    .rte{
+        table{
+            table-layout: unset;
+        }
+        @include tablet-and-mobile{
+            overflow: scroll;
+            .table{
+                min-width: 768px;
+                max-width: 768px;
+            }
+        }
+    }
+
+    .product-action{
+        @include tablet-and-mobile{
+            display: none;
+        }
+    }
+}

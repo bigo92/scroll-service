@@ -1,0 +1,52 @@
+<nav *ngIf="lstPage.length > 0 && (temp === undefined || temp === 1)">
+  <ul class="pagination justify-content-end  m-t-20 m-r-30">
+    <li class="page-item" [ngClass]="{'disabled': curentPage === 1}">
+      <a class="page-link" *ngIf="curentPage > 1" (click)="onChangePage(curentPage-1)" href="javascript:void(0)">
+        <span class="icon-chevron-left">«</span>
+      </a>
+      <a class="page-link" *ngIf="curentPage === 1" href="javascript:void(0)">
+        <span class="icon-chevron-left">«</span>
+      </a>
+    </li>
+    <li class="page-item ng-star-inserted" [ngClass]="{'active': x === curentPage}" *ngFor="let x of lstPage">
+      <a *ngIf="x === curentPage" class="page-link" (click)="onChangePage(x)" href="javascript:void(0)">{{x}}</a>
+      <a *ngIf="x !== curentPage" class="page-link" (click)="onChangePage(x)" href="javascript:void(0)">{{x}}</a>
+    </li>
+    <li class="page-item" [ngClass]="{'disabled': curentPage === totalPage}">
+      <a class="page-link" *ngIf="curentPage < totalPage" (click)="onChangePage(curentPage+1)" href="javascript:void(0)">
+        <span class="icon-chevron-right">»</span>
+      </a>
+      <a class="page-link" *ngIf="curentPage === totalPage" href="javascript:void(0)">
+        <span class="icon-chevron-right">»</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+
+<nav class="temp2" *ngIf="temp === 2">
+  <div class="jump-page float-left">
+    <div class="lbl-page float-left">Go to</div>
+    <input type="number" class="form-control in-page" [value]="curentPage" #page (input)="onChangeInput(page.value)">
+  </div>
+  <div class="record-status float-left">{{1 + (curentPage-1)*itemsPerPage}} - {{(curentPage-1)*itemsPerPage + item.length}} of {{totalItem}}</div>
+  <ul class="pagination justify-content-end m-b-0">
+    <li class="page-item" [ngClass]="{'disabled': curentPage === 1}">
+      <a *ngIf="curentPage > 1" (click)="onChangePage(curentPage-1)" href="javascript:void(0)">
+        <div class="icon-back"></div>
+      </a>
+      <a *ngIf="curentPage === 1" href="javascript:void(0)">
+        <div class="icon-back"></div>
+      </a>
+    </li>
+    <li class="page-item" [ngClass]="{'disabled': curentPage === totalPage}">
+      <a class="page-item" *ngIf="curentPage < totalPage" (click)="onChangePage(curentPage+1)" href="javascript:void(0)">
+        <div class="icon-forward"></div>
+      </a>
+      <a class="page-item" *ngIf="curentPage === totalPage" href="javascript:void(0)">
+        <div class="icon-forward"></div>
+      </a>
+    </li>
+  </ul>
+</nav>

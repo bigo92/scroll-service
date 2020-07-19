@@ -1,0 +1,39 @@
+<div id="categories_block" class="block sidebar_block_custom">
+  <h4 class="title_block">Danh mục
+    <i class="fa fa-plus-circle hidden-lg hidden-md hidden-sm"></i>
+  </h4>
+  <div class="block_content">
+    <ul class="list-block list-group list-unstyled listSidebar">
+      <li>
+        <a [routerLink]="['/san-pham']" title="Tất Cả Sản Phẩm" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Tất Cả Sản phẩm
+          <span id="leo-cat-1057281" class="leo-qty pull-right"> --- </span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/san-pham','noi-bat']" title="Sản Phẩm Nổi Bật" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Sản phẩm Nổi Bật
+          <span id="leo-cat-1057281" class="leo-qty pull-right"> --- </span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/san-pham','moi']" title="Sản Phẩm Mới" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Sản Phẩm Mới
+          <span id="leo-cat-1057281" class="leo-qty pull-right"> --- </span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/san-pham', 'khuyen-mai']" title="Sản Phẩm Khuyến Mãi" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          Sản Phẩm Khuyến Mãi
+          <span id="leo-cat-1057281" class="leo-qty pull-right"> --- </span>
+        </a>
+      </li>
+      <li *ngFor="let item of data">
+        <a [routerLink]="['/san-pham',item.keyName]" title="{{item.name}}" routerLinkActive="active">
+          {{item.name}}
+          <span class="leo-qty pull-right"> --- </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

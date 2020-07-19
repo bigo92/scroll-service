@@ -1,0 +1,83 @@
+<div id="popup-cart" class="modal fade in" role="dialog" style="display: none;">
+  <div id="popup-cart-desktop" class="clearfix">
+    <div class="title-popup-cart">
+    </div>
+    <div class="title-quantity-popup">
+      <a href="javascript:;">Giỏ hàng</a>
+    </div>
+    <div class="content-popup-cart">
+      <div class="thead-popup"  *ngIf="gioHang.length > 0">
+        <div class="text-left column">Sản phẩm</div>
+        <div class="text-left column">Đơn giá</div>
+        <div class="text-left column">Số lượng</div>
+        <div class="text-left column">Thành tiền</div>
+      </div>
+      <div class="tbody-popup"  *ngIf="gioHang.length > 0">
+        <div class="item-popup productid-9522620" *ngFor="let item of gioHang">
+          <div class="text-left column">
+            <div class="item-image">
+              <a class="product-image" href="/san-pham/{{item.keyName}}/{{item.id}}" title="{{item.name}}">
+                <img alt="{{item.name}}" src="{{item.url}}" width="80">
+              </a>
+            </div>
+            <div class="item-info">
+              <p class="item-name">
+                <a href="/san-pham/{{item.keyName}}/{{item.id}}" title="{{item.name}}">{{item.name}}</a>
+              </p>
+              <p class="variant-title-popup"></p>
+              <p class="item-remove">
+                <a href="javascript:;" class="remove-item-cart remove-cart" title="Xóa" [attr.data-id]="item.id">
+                  <i class="fa fa-close"></i> Bỏ sản phẩm</a>
+              </p>
+              <p class="addpass" style="color:#fff;">9522620</p>
+            </div>
+          </div>
+          <div class="text-left column">
+            <div class="item-price">
+              <span class="price">{{item.price | number}}₫</span>
+            </div>
+          </div>
+          <div class="text-left column">           
+            <button class="reduced items-count btn-minus minus-cart" type="button" [attr.data-id]="item.id">–</button>
+            <input type="text" maxlength="999" min="1" class="input-text number-sidebar quantity-cart" [attr.data-id]="item.id" size="4" [value]="item.quantity">
+            <button class="increase items-count btn-plus plus-cart" type="button" [attr.data-id]="item.id">+</button>
+          </div>
+          <div class="text-left column">
+            <span class="cart-price">
+              <span class="price">{{(item.price * item.quantity) | number}}₫</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div  *ngIf="gioHang.length === 0">Không có sản phẩm nào trong giỏ hàng. Quay lại cửa hàng để tiếp tục mua sắm.</div>
+    </div>
+    <div class="tfoot-popup" *ngIf="gioHang.length > 0">
+      <div class="tfoot-popup-1 clearfix">
+        <div class="textright popup-total">
+          <p>
+            <span class="thanhtien">Thành tiền: </span>
+            <span class="total-price">{{gh.total | number}}₫</span>
+          </p>
+        </div>
+        <div class="textright popup-ship">
+          <p>
+            <i>Giao hàng trên toàn quốc</i>
+          </p>
+        </div>
+      </div>
+      <div class="tfoot-popup-2 clearfix">
+        <a class="button btn-proceed-checkout" title="Tiến hành đặt hàng" href="/dat-hang">
+          <span> ĐẶT HÀNG </span>
+        </a>
+        <a class="button btn-continue close-cart" title="Tiếp tục mua hàng">
+          <span>
+            <span>TIẾP TỤC MUA HÀNG</span>
+          </span>
+        </a>
+      </div>
+    </div>
+    <a title="Close" class="quickview-close close-window close-cart" href="javascript:;">
+      <i class="fa fa-close"></i>
+    </a>
+  </div>
+</div>

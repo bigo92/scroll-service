@@ -1,0 +1,12 @@
+@import "variables";
+app-s1 {
+  section {
+    min-height: 517px;
+    @include tablet-and-mobile {
+      min-height: 350px;
+    }
+    @include mobile {
+      min-height: 162px;
+    }    
+  }
+}

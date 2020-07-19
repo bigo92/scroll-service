@@ -1,0 +1,69 @@
+<section class="bread-crumb clearfix" [ngStyle]="{'background':'url('+ url +')'}">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="breadcrumb" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+          <li class="home">
+            <a itemprop="url" href="/">
+              <span itemprop="title" class="brc-home">Trang chủ </span>
+            </a>
+            <span>
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </li>
+          <li>
+            <span itemprop="title"> Tin tức</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="mm-0" class="mm-page mm-slideout">
+  <div class="container">
+    <div class="row">
+
+      <section class="right-content col-md-8 col-lg-8 ">
+        <div class="box-heading">
+          <h1 class="title-head">Tin tức</h1>
+        </div>
+
+        <section class="list-blogs blog-main">
+          <article class="blog-item" *ngFor="let item of data">
+            <div class="blog-item-thumbnail">
+              <a [routerLink]="['/tin-tuc',item.dataSeo.url,item.id]">
+                <img *ngIf="item.files.length > 0" src="{{item.files[0].url}}" alt="{{item.data.title}">
+              </a>
+            </div>
+            <div class="content-blog-text">
+              <h3 class="blog-item-name">
+                <a [routerLink]="['/tin-tuc',item.dataSeo.url,item.id]" title="{{item.data.title}}">{{item.data.title}}</a>
+              </h3>
+              <div class="postby">
+                <span>Đăng bởi
+                  <b>BG DOOR</b> Lượt theo dõi ({{item.data.view}})</span>
+              </div>
+              <p class="blog-item-summary margin-bottom-5">
+                {{item.data.sumary}}
+              </p>
+              <a [routerLink]="['/tin-tuc',item.dataSeo.url,item.id]" class="btn btn-white">Xem chi tiết</a>
+            </div>
+          </article>
+
+          <div class="text-xs-left">
+            <app-paging [data]="paging" (change)="getData($event)"></app-paging>
+          </div>
+        </section>
+      </section>
+      <aside class="left left-content col-lg-4 col-md-4">
+       <app-news-category></app-news-category>
+       </aside>
+      <aside class="left left-content col-lg-4 col-md-4">
+  
+        <app-news-special></app-news-special>
+      </aside>
+
+    </div>
+  </div>
+</div>
